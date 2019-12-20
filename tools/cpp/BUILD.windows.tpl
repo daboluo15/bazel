@@ -196,7 +196,7 @@ cc_toolchain_config(
         "objdump": "wrapper/bin/msvc_nop.bat",
         "strip": "wrapper/bin/msvc_nop.bat",
     },
-    default_link_flags = ["/MACHINE:X64"],
+    default_link_flags = ["/MACHINE:X86"],
     dbg_mode_debug_flag = "%{dbg_mode_debug_flag}",
     fastbuild_mode_debug_flag = "%{fastbuild_mode_debug_flag}",
 )
@@ -204,11 +204,11 @@ cc_toolchain_config(
 toolchain(
     name = "cc-toolchain-x64_windows",
     exec_compatible_with = [
-        "@platforms//cpu:x86_64",
+        "@platforms//cpu:x86_32",
         "@platforms//os:windows",
     ],
     target_compatible_with = [
-        "@platforms//cpu:x86_64",
+        "@platforms//cpu:x86_32",
         "@platforms//os:windows",
     ],
     toolchain = ":cc-compiler-x64_windows",

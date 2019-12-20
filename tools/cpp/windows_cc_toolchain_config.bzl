@@ -498,7 +498,7 @@ def _impl(ctx):
                             expand_if_available = "output_execpath",
                         ),
                         flag_group(
-                            flags = ["/MACHINE:X64"],
+                            flags = ["/MACHINE:X86"],
                         ),
                     ],
                 ),

@@ -300,7 +300,7 @@ def setup_vc_env_vars(repository_ctx, vc_path, envvars = [], allow_empty = False
         if _is_support_vcvars_ver(_get_latest_subversion(repository_ctx, vc_path)):
             vcvars_ver = "-vcvars_ver=" + full_version
 
-    cmd = "\"%s\" amd64 %s %s" % (vcvars_script, winsdk_version, vcvars_ver)
+    cmd = "\"%s\" amd64_x86 %s %s" % (vcvars_script, winsdk_version, vcvars_ver)
     print_envvars = ",".join(["{k}=%{k}%".format(k = k) for k in envvars])
     repository_ctx.file(
         "get_env.bat",
@@ -366,7 +366,7 @@ def find_msvc_tool(repository_ctx, vc_path, tool):
     if _is_vs_2017_or_2019(vc_path):
         full_version = _get_vc_full_version(repository_ctx, vc_path)
         if full_version:
-            tool_path = "%s\\Tools\\MSVC\\%s\\bin\\HostX64\\x64\\%s" % (vc_path, full_version, tool)
+            tool_path = "%s\\Tools\\MSVC\\%s\\bin\\HostX64\\x86\\%s" % (vc_path, full_version, tool)
     else:
         # For VS 2015 and older version, the tools are under:
         # C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64
